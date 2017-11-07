@@ -1,0 +1,110 @@
+{
+	"name": "json specs",
+	"description": "use for testing endpoint",
+	"server_domain": "http://127.0.0.1:3330",
+	"auth": {
+		"type": "jwt",
+		"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVpZCI6NTJ9LCJpYXQiOjE1MTAwNzI5NjEsImV4cCI6MTUxMDA5MDk2MX0.Sg7QS3-duVjZCXhtkWf-ESjHb2NCP_4rMdsqymiUqkY"
+	},
+	"list_test": ["login", "mention"],
+	"test_data": {
+		"login": {
+			"describe": "Login /auth/login",
+			"timeout": 5000,
+			"test": [
+				{
+					"it": "should return response-code:200",
+					"request": {
+						"type": "POST",
+						"endpoint": "/api/v1/auth/login",
+						"query": {},
+						"data": {
+							"username": "narko",
+							"password": "punt3n"
+						},
+						"expects": [
+							"(res).to.have.status(200)",
+							"(res.body).to.have.own.property('statusCode')"
+						],
+						"prints": [
+							"res.body.data.token"
+						]
+					}
+				}
+			]
+		},
+		"mention": {
+			"describe": "Mention /Mention",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code:200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/mentions",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							},
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": true
+							},
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": true,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							],
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							],
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						],
+						"prints": [
+							"res.body.data"
+						]
+					}
+				}
+			]
+		}
+	}
+}
