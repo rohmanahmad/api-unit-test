@@ -9,7 +9,7 @@ chai.use(require('chai-http'))
 const serverDomain = specs.server_domain
 const listTest = specs.list_test
 const dataTest = specs.test_data
-// const access_token = specs.auth.access_token
+const config_access_token = specs.auth.access_token
 var access_token = ""
 
 function test (o) {
@@ -40,6 +40,9 @@ function test (o) {
 
 			if (headers) {
 				for (let key in headers) {
+					if (access_token === "") {
+						access_token = config_access_token
+					}
 					const header = headers[key].replace('<access_token>', access_token)
 					chaiReq = chaiReq.set(key, header)
 				}
