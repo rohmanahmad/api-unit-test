@@ -19,8 +19,8 @@
 						"endpoint": "/api/v1/auth/login",
 						"query": {},
 						"data": {
-							"username": "narko",
-							"password": "punt3n"
+							"username": "your username",
+							"password": "your password"
 						},
 						"expects": [
 							"(res).to.have.status(200)",
