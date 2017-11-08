@@ -4,7 +4,7 @@
 	"server_domain": "http://127.0.0.1:3330",
 	"auth": {
 		"type": "jwt",
-		"access_token": "access_token jika token otomatisnya gk bisa"
+		"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVpZCI6NTJ9LCJpYXQiOjE1MTAxMjE0NTksImV4cCI6MTUxMDEzOTQ1OX0.NcF7WXXpv0tekGR0VRbkboykIK-nb7FCXxXqGbrbku0"
 	},
 	"list_test": [
 		"login",
