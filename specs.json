@@ -6,7 +6,36 @@
 		"type": "jwt",
 		"access_token": "access_token jika token otomatisnya gk bisa"
 	},
-	"list_test": ["login", "mention"],
+	"list_test": [
+		"login",
+		"mention",
+		"top_users",
+		"top_influencer",
+		"wordcloud",
+		"hashtags",
+		"average_daily_mentions",
+		"average_daily_mentions",
+		"top_mentions_time",
+		"streams",
+		"share_of_stream",
+		"buzz_geo",
+		"brand_positioning",
+		"brand_mention",
+		"brand_topwords",
+		"brand_shareofvoice",
+		"brand_buzz_geo",
+		"twitter_summary",
+		"twitter_facebook",
+		"twitter_instagram",
+		"summary_brand",
+		"update_sentiment",
+		"sociomile",
+		"delete_streams",
+		"get_profile",
+		"project_list",
+		"get_project_by_id",
+		"get_industry"
+	],
 	"test_data": {
 		"login": {
 			"describe": "Login /auth/login",
@@ -34,7 +63,7 @@
 			]
 		},
 		"mention": {
-			"describe": "Mention /Mention",
+			"describe": "/mention",
 			"timeout": 5000,
 			"headers": {
 				"Accept": "application/json",
@@ -42,7 +71,7 @@
 			},
 			"test": [
 				{
-					"it": "should return response-code:200",
+					"it": "should return response-code: 200",
 					"request": {
 						"type": "GET",
 						"endpoint": "/api/v1/mentions",
@@ -98,9 +127,872 @@
 								"(res).to.have.status(200)",
 								"(res.body).to.have.own.property('statusCode')"
 							]
+						]
+					}
+				}
+			]
+		},
+		"top_users": {
+			"describe": "/mentions/top_users",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/mentions/top_users",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
 						],
-						"prints": [
-							"res.body.data"
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"top_influencer": {
+			"describe": "/mentions/top_influencer",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/mentions/top_influencer",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"wordcloud": {
+			"describe": "/mentions/wordcloud",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/mentions/wordcloud",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"hashtags": {
+			"describe": "/mentions/hashtags",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/mentions/hashtags",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"average_daily_mentions": {
+			"describe": "/mentions/average_daily_mentions",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/mentions/average-daily-mentions",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"top_mentions_time": {
+			"describe": "/mentions/top_mentions_time",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/mentions/top-mentions-time",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"streams": {
+			"describe": "/stream",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"share_of_stream": {
+			"describe": "/stream/shareofstream",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream/shareofstream",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"buzz_geo": {
+			"describe": "/stream/buzzgeo",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream/buzzgeo",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"brand_positioning": {
+			"describe": "/stream/brand/brand_positioning",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream/brand/brand-positioning",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"brand_mention": {
+			"describe": "/stream/brand/mention",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream/brand/mention",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"brand_topwords": {
+			"describe": "/stream/brand/topwords",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream/brand/topwords",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28"
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"brand_shareofvoice": {
+			"describe": "/stream/brand/shareofvoice",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream/brand/shareofvoice",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"brand_buzz_geo": {
+			"describe": "/stream/buzzgeo-brand",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream/buzzgeo-brand",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"type": "daily",
+								"section": "mention",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"twitter_summary": {
+			"describe": "/summary/twitter",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/summary/twitter",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"twitter_facebook": {
+			"describe": "/summary/facebook",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/summary/facebook",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"twitter_instagram": {
+			"describe": "/summary/instagram",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/summary/instagram",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"summary_brand": {
+			"describe": "/summary/brand",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/summary/brand",
+						"query": [
+							{
+								"project": 80,
+								"since": "2017-02-01",
+								"until": "2017-02-28",
+								"service_category": 2,
+								"author": "",
+								"domain": "",
+								"is_total": false,
+								"filterbot": false
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"update_sentiment": {
+			"describe": "/stream/update_sentiment",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream/update_sentiment",
+						"query": [
+							{
+								"project": 80,
+								"streamid": "58b611491c2f381e29fe1cc3",
+								"sentiment": "negative"
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"sociomile": {
+			"describe": "/stream/sociomile",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream/sociomile",
+						"query": [
+							{
+								"project": 80,
+								"streamid": "58b611491c2f381e29fe1cc3"
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"delete_streams": {
+			"describe": "/stream/delete_stream",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/stream/delete_stream",
+						"query": [
+							{
+								"project": 80,
+								"streamid": "58b611491c2f381e29fe1cc3"
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"get_profile": {
+			"describe": "/profile/global-settings/get-profile",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/profile/global-settings/get-profile",
+						"query": [],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"project_list": {
+			"describe": "/projects/list",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/projects/list",
+						"query": [],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"get_project_by_id": {
+			"describe": "/projects/$1",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/projects/$1",
+						"params": [80],
+						"query": [],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
+						]
+					}
+				}
+			]
+		},
+		"get_industry": {
+			"describe": "/projects/industry/$1",
+			"timeout": 5000,
+			"headers": {
+				"Accept": "application/json",
+				"Authorization": "Bearer <access_token>"
+			},
+			"test": [
+				{
+					"it": "should return response-code: 200",
+					"request": {
+						"type": "GET",
+						"endpoint": "/api/v1/projects/industry/$1",
+						"params": ["all"],
+						"query": [
+							{
+								"limit": 10
+							}
+						],
+						"data": {},
+						"expects": [
+							[
+								"(res).to.have.status(200)",
+								"(res.body).to.have.own.property('statusCode')"
+							]
 						]
 					}
 				}

@@ -87,6 +87,10 @@ for (let index in listTest) {
 		data.data = data.req.data
 		data.prints = data.req.prints
 		const query = data.req.query
+		const params = data.req.params
+		for (let x in params) {
+			data.endpoint = data.endpoint.replace(`$${ parseInt(x + 1) }`, params[x])
+		}
 		if (query.length > 0) {
 			for (let iQ in query) {
 				data.expects = data.req.expects[iQ] // sesuai dengan urutan array
